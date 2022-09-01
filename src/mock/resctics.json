@@ -1,0 +1,43 @@
+[
+  {
+    "preview": "https://sovcominvest.ru/uploads/photo/17772/image/dfcc92bfc6add118a3d006b4f7f88fe9.jpg",
+    "title": "Шаурма у Карата",
+    "rating": 1.1,
+    "averageCheck": 1500,
+    "minDeliveryTime": 45,
+    "maxDeliveryTime": 75
+  },
+  {
+    "preview": "https://eda.yandex/images/3436037/0b8f38d72256c03fad684f94439bfba5-450x300.jpg",
+    "title": "Бургер Кинг",
+    "rating": 5,
+    "averageCheck": 1500,
+    "minDeliveryTime": 45,
+    "maxDeliveryTime": 75
+  },
+  {
+    "preview": "https://eda.yandex/images/2353725/81d81a1035a21cf7a64f8122d3a4f4e4-450x300.jpg",
+    "title": "Subway",
+    "rating": 4.5,
+    "averageCheck": 1500,
+    "minDeliveryTime": 45,
+    "maxDeliveryTime": 75
+  },
+  {
+    "preview": "https://eda.yandex/images/3609085/8d35d426c2800905f86ce1903220e576-450x300.jpg",
+    "title": "Глория",
+    "rating": 4.9,
+    "averageCheck": 1500,
+    "minDeliveryTime": 45,
+    "maxDeliveryTime": 75
+  },
+  {
+    "preview": "https://eda.yandex/images/1380157/61cecc1e1b27ac00116e1dd254d93f66-450x300.jpg",
+    "title": "Pizza Fabrica",
+    "rating": 3,
+    "averageCheck": 1500,
+    "minDeliveryTime": 45,
+    "maxDeliveryTime": 75
+  }
+
+]

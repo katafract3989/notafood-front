@@ -1,0 +1,15 @@
+.restaurants {
+
+  &__head {
+    margin-bottom: 30px;
+  }
+
+  &__body {
+   display: flex;
+  }
+}
+
+.restaurants-title {
+  font-size: 36px !important;
+  margin: 0;
+}
