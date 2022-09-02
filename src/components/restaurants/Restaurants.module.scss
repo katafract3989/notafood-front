@@ -1,11 +1,13 @@
 .restaurants {
+  padding: 30px 213px;
 
   &__head {
     margin-bottom: 30px;
   }
 
   &__body {
-   display: flex;
+    display: flex;
+    flex-wrap: wrap;
   }
 }
 

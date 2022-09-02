@@ -1,0 +1,24 @@
+.restaurant {
+  margin: 30px 90px;
+  position: relative;
+  display: flex;
+
+  &__menu {
+    position: fixed;
+    width: 320px;
+    height: 100%;
+    left: 90px;
+  }
+
+  &__food {
+    width: 100%;
+    margin: 0 320px;
+  }
+
+  &__cart {
+    position: fixed;
+    width: 320px;
+    height: 100%;
+    right: 90px;
+  }
+}

@@ -7,6 +7,14 @@ body {
   sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #e8ecf1;
+}
+
+a:active,
+a:hover,
+a {
+  text-decoration: none;
+  color: black;
 }
 
 code {
@@ -16,7 +24,7 @@ code {
 
 .App {
   &__main {
-    padding: 30px 90px;
+
   }
 }
 
@@ -30,7 +38,7 @@ code {
     display: flex;
     align-items: center;
     font-size: 24px;
-    font-weight: 600;
+    font-weight: 400;
     color: #faa301;
     padding: 10px;
 

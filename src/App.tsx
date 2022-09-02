@@ -2,6 +2,7 @@ import React from 'react';
 import {Routes, Route} from "react-router-dom";
 import Home from './views/Home';
 import Header from './components/Header';
+import Restaurant from "./views/restaurant/Restaurant";
 
 const App = () => {
     return (
@@ -12,6 +13,7 @@ const App = () => {
             <main className="App__main">
                 <Routes>
                     <Route path="/" element={<Home/>}/>
+                    <Route path="/restaurant/:id" element={<Restaurant/>}/>
                 </Routes>
             </main>
             <footer className="App__footer" />

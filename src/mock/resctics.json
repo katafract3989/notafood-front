@@ -1,43 +1,57 @@
 [
   {
+    "id": 1,
     "preview": "https://sovcominvest.ru/uploads/photo/17772/image/dfcc92bfc6add118a3d006b4f7f88fe9.jpg",
     "title": "Шаурма у Карата",
     "rating": 1.1,
     "averageCheck": 1500,
-    "minDeliveryTime": 45,
-    "maxDeliveryTime": 75
+    "minDeliveryTime": 15,
+    "maxDeliveryTime": 30
   },
   {
+    "id": 2,
     "preview": "https://eda.yandex/images/3436037/0b8f38d72256c03fad684f94439bfba5-450x300.jpg",
     "title": "Бургер Кинг",
-    "rating": 5,
+    "rating": 4.8,
     "averageCheck": 1500,
-    "minDeliveryTime": 45,
-    "maxDeliveryTime": 75
+    "minDeliveryTime": 30,
+    "maxDeliveryTime": 40
   },
   {
+    "id": 3,
     "preview": "https://eda.yandex/images/2353725/81d81a1035a21cf7a64f8122d3a4f4e4-450x300.jpg",
     "title": "Subway",
-    "rating": 4.5,
+    "rating": 4.6,
     "averageCheck": 1500,
-    "minDeliveryTime": 45,
-    "maxDeliveryTime": 75
+    "minDeliveryTime": 30,
+    "maxDeliveryTime": 40
   },
   {
+    "id": 4,
     "preview": "https://eda.yandex/images/3609085/8d35d426c2800905f86ce1903220e576-450x300.jpg",
     "title": "Глория",
-    "rating": 4.9,
+    "rating": 4.8,
     "averageCheck": 1500,
     "minDeliveryTime": 45,
     "maxDeliveryTime": 75
   },
   {
+    "id": 5,
     "preview": "https://eda.yandex/images/1380157/61cecc1e1b27ac00116e1dd254d93f66-450x300.jpg",
     "title": "Pizza Fabrica",
-    "rating": 3,
+    "rating": 5,
     "averageCheck": 1500,
-    "minDeliveryTime": 45,
-    "maxDeliveryTime": 75
+    "minDeliveryTime": 35,
+    "maxDeliveryTime": 45
+  },
+  {
+    "id": 6,
+    "preview": "https://eda.yandex/images/3798638/d1533b47c2768812e9b3f178cdfc7c06-450x300.jpg",
+    "title": "Вкусно блин",
+    "rating": 4.9,
+    "averageCheck": 1500,
+    "minDeliveryTime": 35,
+    "maxDeliveryTime": 45
   }
 
 ]

@@ -1,5 +1,5 @@
 import React from 'react';
-import Restaurants from "../components/Restaurants/Restaurants";
+import Restaurants from "../components/restaurants/Restaurants";
 
 const Home = () => {
     return (
