@@ -1,0 +1,55 @@
+.food-card {
+  position: relative;
+  width: 213px;
+  height: 358px;
+  background: #FFFFFF;
+  border-radius: 24px;
+  margin: 12px 5px;
+  overflow: hidden;
+  //padding: 10px;
+
+
+  &__preview {
+    width: 100%;
+    border-radius: 24px;
+    img {
+      width: 100%;
+    }
+  }
+
+  &__price {
+    font-weight: 600;
+    font-size: 24px;
+    padding: 0 10px;
+  }
+
+  &__title {
+    font-size: 16px;
+    padding: 0 10px 10px 10px;
+  }
+
+  &__portion {
+    padding: 0 10px;
+  }
+
+  &__footer {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+}
+
+.card-button {
+  cursor: pointer;
+  border-radius: 14px;
+  width: 193px;
+  border: none;
+  height: 48px;
+  font-size: 16px;
+  font-weight: 400;
+}

@@ -1,0 +1,26 @@
+{
+  "id": 1,
+  "preview": "https://eda.yandex/images/3436037/0b8f38d72256c03fad684f94439bfba5-1100x825.jpg",
+  "title": "Бургер кинг",
+  "rating": 4.8,
+  "averageCheck": 1500,
+  "minDeliveryTime": 25,
+  "maxDeliveryTime": 35,
+  "categories": [
+    {
+      "id": 1,
+      "title": "Новинки",
+      "food": [
+        {
+          "id": 1,
+          "preview": "https://eda.yandex/images/3807631/d775b8971d522d03d27e1cc32e8dc36e-216x188.jpeg",
+          "price": 499.99,
+          "title": "Ангус Пармезан",
+          "portion": "205 г",
+          "quantity": 0
+        }
+      ]
+
+    }
+  ]
+}

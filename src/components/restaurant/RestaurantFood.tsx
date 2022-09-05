@@ -5,6 +5,8 @@ import RestaurantFoodCategory from "./RestaurantFoodCategory";
 
 const RestaurantFood = (props: {restaurant: Restaurant}) => {
 
+    const categories = props.restaurant.categories?.map(category => <RestaurantFoodCategory title={category.title} food={category.food} />)
+
 
     return (
         <div className={cls['restaurant-food']}>
@@ -12,7 +14,7 @@ const RestaurantFood = (props: {restaurant: Restaurant}) => {
                 <RestaurantFoodHead title={props.restaurant.title} preview={props.restaurant.preview} />
             </div>
             <div className={cls['restaurant-food__food']}>
-                <RestaurantFoodCategory />
+                {categories}
             </div>
 
         </div>

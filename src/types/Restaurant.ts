@@ -1,21 +1,25 @@
 export type Restaurant = {
-   id: number,
-   preview: string,
-   title: string,
-   rating: number,
-   averageCheck: number,
-   minDeliveryTime: number,
-   maxDeliveryTime: number
+    id: number,
+    preview: string,
+    title: string,
+    rating: number,
+    averageCheck: number,
+    minDeliveryTime: number,
+    maxDeliveryTime: number,
+    categories?: Category[]
 }
 
 export type Category = {
-   title: string,
-   food: Product[],
+    id: number
+    title: string,
+    food: Food[]
 }
 
-export type Product = {
-   preview: string,
-   price: number,
-   structure: string,
-   servingSize: number,
+export type Food = {
+    id: number
+    preview: string,
+    price: number,
+    title: string,
+    portion: string,
+    quantity: number,
 }
