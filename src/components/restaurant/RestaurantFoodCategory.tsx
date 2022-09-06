@@ -4,7 +4,7 @@ import {Food} from "@/types/Restaurant";
 
 const RestaurantFoodCategory = (props: {title: string, food: Food[]}) => {
 
-    const cards = props.food.map(card => <FoodCard card={card} />)
+    const cards = props.food.map(card => <FoodCard card={card} key={card.id} />)
 
     return (
         <div className={cls['restaurant-category']}>

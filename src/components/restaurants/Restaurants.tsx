@@ -1,11 +1,20 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import cls from './Restaurants.module.scss';
 import Card from './Card';
-import restaurantsMock from '../../mock/resctics.json'
+import {api} from "../../common/api";
+import {Restaurant} from "@/types/Restaurant";
 
 const RestaurantsSection = () => {
 
-    const [restaurants, setRestaurants] = useState(restaurantsMock)
+    const [restaurants, setRestaurants] = useState<Restaurant[]>([])
+
+    useEffect(() => {
+        reqRestaurants()
+    }, [])
+
+    const reqRestaurants = () => {
+       api.getRequest('/restaurants').then(res => setRestaurants(res.data));
+    }
 
     const restaurantsList = restaurants.map((item, index) => <Card key={index} restaurant={item}/>)
 
