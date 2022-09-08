@@ -1,7 +1,9 @@
 import cls from "./FoodCard.module.scss"
-import {Food} from "@/types/Restaurant";
+import {Product} from "../../types/Restaurant";
+import {useActions} from "../../hooks/useActions";
 
-const FoodCard = (props: {card: Food}) => {
+const FoodCard = (props: {card: Product}) => {
+    const {addProduct} = useActions()
   return(
       <div className={cls['food-card']}>
           <div className={cls['food-card__preview']}>
@@ -17,7 +19,7 @@ const FoodCard = (props: {card: Food}) => {
               <span>{props.card.portion}</span>
           </div>
           <div className={cls['food-card__footer']}>
-              <button className={cls['card-button']}>+ Добавить</button>
+              <button className={cls['card-button']} onClick={() => addProduct(props.card)}>+ Добавить</button>
           </div>
       </div>
   )

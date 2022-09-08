@@ -1,10 +1,10 @@
 import cls from './RestaurantFoodCategory.module.scss'
 import FoodCard from "./FoodCard";
-import {Food} from "@/types/Restaurant";
+import {Product} from "../../types/Restaurant";
 
-const RestaurantFoodCategory = (props: {title: string, food: Food[]}) => {
+const RestaurantFoodCategory = (props: {title: string, products: Product[]}) => {
 
-    const cards = props.food.map(card => <FoodCard card={card} key={card.id} />)
+    const cards = props.products.map(card => <FoodCard card={card} key={card.id} />)
 
     return (
         <div className={cls['restaurant-category']}>
@@ -14,7 +14,6 @@ const RestaurantFoodCategory = (props: {title: string, food: Food[]}) => {
             <div className={cls['restaurant-category__food']}>
                 {cards}
             </div>
-
         </div>
     );
 }

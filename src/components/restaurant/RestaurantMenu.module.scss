@@ -1,0 +1,13 @@
+.restaurant-menu {
+  margin-top: 15px;
+  &__head {
+    margin-bottom: 30px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+

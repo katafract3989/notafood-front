@@ -12,10 +12,10 @@ export type Restaurant = {
 export type Category = {
     id: number
     title: string,
-    food: Food[]
+    products: Product[]
 }
 
-export type Food = {
+export type Product = {
     id: number
     preview: string,
     price: number,

@@ -1,0 +1,17 @@
+.product {
+  display: flex;
+  align-items: center;
+
+  &__image {
+    margin-right: 7px;
+  }
+}
+
+.order-info {
+
+  &__price {
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+}
