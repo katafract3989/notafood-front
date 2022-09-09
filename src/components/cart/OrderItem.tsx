@@ -1,9 +1,21 @@
-import {Product} from "../../types/Restaurant";
+import {OrderProduct} from "../../types/Restaurant";
 import cls from "./OrderItem.module.scss";
+import SpinButton from "../ui/spin-button/SpinButton";
+import {useActions} from "../../hooks/useActions";
 
-const OrderItem = (props: { product: Product }) => {
+const OrderItem = (props: { product: OrderProduct }) => {
 
     const product = props.product
+    const {increaseQuantity, reduceQuantity, recalculationFinalPrice} = useActions()
+
+    const increaseQuantityInProduct = () => {
+        increaseQuantity(product.id)
+        recalculationFinalPrice()
+    }
+    const reduceQuantityInProduct = () => {
+        reduceQuantity(product.id)
+        recalculationFinalPrice()
+    }
 
     return (
         <div className={cls.product}>
@@ -12,9 +24,11 @@ const OrderItem = (props: { product: Product }) => {
             </div>
             <div className={cls['order-info']}>
                 <div className={cls['order-info__title']}>{product.title}</div>
-                <div className={cls['order-info__price']}>{product.price} Руб</div>
+                <div className={cls['order-info__price']}>{product.totalPrice} Руб</div>
             </div>
-            <div className={cls['product__quantity']}></div>
+            <div className={cls['product__quantity']}>
+                <SpinButton onIncrease={() => increaseQuantityInProduct()} onReduce={() => reduceQuantityInProduct()} count={product.quantity} />
+            </div>
         </div>
     )
 }

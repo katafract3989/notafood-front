@@ -1,0 +1,32 @@
+.spin-button {
+  display: flex;
+  position: relative;
+  font-size: 16px;
+  width: 100%;
+  margin: 0 10px;
+  font-weight: 600;
+  background: #f0f0f0;
+  justify-content: space-between;
+  height: 100%;
+  border-radius: 10px;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  &__count {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__button {
+    padding: 0 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+}

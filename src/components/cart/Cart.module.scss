@@ -7,8 +7,21 @@
   position: relative;
 
   &__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
     h2 {
-      margin: 10px;
+      margin: 0;
+    }
+    span {
+      transition: 1s;
+      opacity: 0.5;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 1;
+      }
     }
   }
 
@@ -19,4 +32,18 @@
     bottom: 0;
     width: 320px;
   }
+}
+
+.cart-footer-button {
+  margin: 10px 0;
+  background: #fce000;
+  height: 60px;
+  border-radius: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
 }

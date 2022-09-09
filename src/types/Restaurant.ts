@@ -21,5 +21,14 @@ export type Product = {
     price: number,
     title: string,
     portion: string,
+}
+
+export type OrderProduct = {
+    id: number
+    preview: string,
+    price: number,
+    title: string,
+    portion: string,
     quantity: number,
+    totalPrice: number,
 }

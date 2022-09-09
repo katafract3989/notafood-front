@@ -5,10 +5,15 @@
   &__image {
     margin-right: 7px;
   }
+
+  &__quantity {
+    padding: 0 5px;
+    height: 30px;
+  }
 }
 
 .order-info {
-
+  width: 150px;
   &__price {
     font-size: 18px;
     font-weight: 600;
