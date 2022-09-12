@@ -4,17 +4,21 @@ import starIcon from "../../assets/icons/icon-star.svg"
 import deliveryIcon from "../../assets/icons/icon-delivery.svg"
 import infoIcon from "../../assets/icons/icon-info.svg"
 
-const RestaurantFoodHead = (props: {title: string, preview: string, rating: number, minDeliveryTime: number, maxDeliveryTime: number}) => {
+type RestaurantHead = {
+    title: string,
+    preview: string,
+    rating: number,
+    minDeliveryTime: number,
+    maxDeliveryTime: number
+}
+
+const RestaurantFoodHead = (props: RestaurantHead) => {
 
     const [deliveryTime, setDeliveryTime] = useState('');
 
     useEffect(() => {
 
-        if (!props.maxDeliveryTime) {
-            setDeliveryTime(`~${props.minDeliveryTime}`);
-        } else {
-            setDeliveryTime(`${props.minDeliveryTime} - ${props.maxDeliveryTime} мин`);
-        }
+        setDeliveryTime(props.maxDeliveryTime ? `${props.minDeliveryTime} - ${props.maxDeliveryTime}` : `~${props.minDeliveryTime}` )
 
     }, [props.minDeliveryTime, props.maxDeliveryTime]);
 
@@ -32,7 +36,7 @@ const RestaurantFoodHead = (props: {title: string, preview: string, rating: numb
                 <div className={cls['restaurant-actions']}>
                     <div className={cls['restaurant-actions__button']}>
                         <img src={deliveryIcon} alt="" width="24" />
-                        <span>{deliveryTime}</span>
+                        <span>{deliveryTime} мин</span>
                     </div>
                     <div className={cls['restaurant-actions__button']}>
                         <img src={starIcon} alt="" width="24" />

@@ -1,6 +1,11 @@
 import cls from './SpinButton.module.scss'
+type SpinButtonType = {
+    onIncrease: Function,
+    onReduce: Function,
+    count: number
+}
 
-const SpinButton = (props: {onIncrease: Function, onReduce: Function, count: number}) => {
+const SpinButton = (props: SpinButtonType) => {
 
     return(
         <div className={cls['spin-button']}>

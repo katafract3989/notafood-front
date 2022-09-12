@@ -1,0 +1,24 @@
+.delivery-type {
+  display: flex;
+}
+
+.type-button {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 16px;
+  margin-right: 5px;
+  border-radius: 16px;
+  cursor: pointer;
+
+  &--active {
+    background: #f1f0ed;
+  }
+
+  &__title {
+    font-weight: 600;
+  }
+
+  &__price {
+    opacity: 0.5;
+  }
+}

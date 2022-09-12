@@ -2,7 +2,11 @@ import cls from "./RestaurantMenu.module.scss"
 import {Link} from "react-router-dom";
 import classNames from "classnames";
 
-const RestaurantMenu = (props: { menuLinks: { title: string }[] }) => {
+type MenuLink = {
+    title: string
+}
+
+const RestaurantMenu = (props: { menuLinks: MenuLink[] }) => {
 
     const backLinkClasses = classNames({
         'menu-link': true,
@@ -14,8 +18,8 @@ const RestaurantMenu = (props: { menuLinks: { title: string }[] }) => {
         'menu-link--active': false
     });
 
-    const menuLinks = props.menuLinks.map((link: { title: string }, index) => <Link key={index} to="#test"
-                                                                                    className={linkClasses}>{link.title}</Link>)
+    const menuLinks = props.menuLinks.map((link: MenuLink, index) => <Link key={index} to="#test"
+                                                                           className={linkClasses}>{link.title}</Link>)
 
     return (
         <div className={cls['restaurant-menu']}>

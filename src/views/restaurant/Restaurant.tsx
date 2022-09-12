@@ -2,30 +2,37 @@ import cls from './restaurant.module.scss'
 import RestaurantFood from "../../components/restaurant/RestaurantFood";
 import {useEffect, useState} from "react";
 import {Restaurant} from "@/types/Restaurant";
-import { api } from "../../common/api";
+import Api from "../../common/api/axios";
 import {useParams} from "react-router-dom";
 import RestaurantMenu from "../../components/restaurant/RestaurantMenu";
 import Cart from "../../components/cart/Cart";
+
+
+type MenuLink = {title: string}
 
 const RestaurantPage = () => {
     const {id} = useParams()
     const [restaurant, setRestaurant] = useState<Restaurant>({} as Restaurant);
 
-    const [menuLinks, setMenuLinks] = useState<{title: string}[]>([])
+    const [menuLinks, setMenuLinks] = useState<MenuLink[]>([])
 
-    useEffect(() => {
-       reqRestaurant()
-    }, [])
+    useEffect(() => reqRestaurant(), [])
 
     const reqRestaurant = () => {
-        api.getRequest(`/restaurants/${id}`).then(res => {
-            setRestaurant(res.data)
-            const menu = res.data.categories.map((category: { title: string; }) => {
-                return {
-                    title: category.title
+        Api.getRequest(`/restaurants/${id}`).then(res => {
+            if(!Array.isArray(res.data)) {
+                setRestaurant(res.data)
+                const menu = res.data.categories?.map((category: { title: string; }) => {
+                    return {
+                        title: category.title
+                    }
+                })
+                if(menu) {
+                    setMenuLinks(menu)
                 }
-            })
-            setMenuLinks(menu)
+            }
+
+
         });
     }
 

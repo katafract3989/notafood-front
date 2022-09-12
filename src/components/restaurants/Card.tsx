@@ -2,20 +2,15 @@ import React, {useEffect, useState} from 'react';
 import cls from './Card.module.scss';
 import Rating from "./Rating";
 import {Link} from "react-router-dom";
+import {Restaurant} from "@/types/Restaurant";
 
-const Card = (props: { restaurant: any }) => {
+const Card = (props: { restaurant: Restaurant }) => {
 
     const restaurant = props.restaurant;
     const [deliveryTime, setDeliveryTime] = useState('');
 
     useEffect(() => {
-
-        if (!restaurant.maxDeliveryTime) {
-            setDeliveryTime(`~${restaurant.minDeliveryTime}`);
-        } else {
-            setDeliveryTime(`${restaurant.minDeliveryTime} - ${restaurant.maxDeliveryTime}`);
-        }
-
+        setDeliveryTime(restaurant.maxDeliveryTime ? `${restaurant.minDeliveryTime} - ${restaurant.maxDeliveryTime}` : `~${restaurant.minDeliveryTime}`)
     }, []);
 
     return (

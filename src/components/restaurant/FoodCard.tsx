@@ -1,6 +1,5 @@
 import cls from "./FoodCard.module.scss"
 import {Product} from "../../types/Restaurant";
-import {useActions} from "../../hooks/useActions";
 import FoodCardAddButton from "./FoodCardAddButton";
 
 const FoodCard = (props: { card: Product }) => {

@@ -7,9 +7,7 @@ const Cart = () => {
 
     const {order, finalPrice} = useTypedSelector(state => state.cartReducer);
     const {orderClear} = useActions();
-
     const orderList = order.map(product => <OrderItem product={product} key={product.id}/>);
-
 
     return(
         <div className={cls.cart}>

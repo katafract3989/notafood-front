@@ -1,12 +1,13 @@
+export type RestaurantApiResponse = Restaurant | Restaurant[]
+
 export type Restaurant = {
     id: number,
     preview: string,
     title: string,
     rating: number,
-    averageCheck: number,
     minDeliveryTime: number,
     maxDeliveryTime: number,
-    categories?: Category[]
+    categories: Category[]
 }
 
 export type Category = {

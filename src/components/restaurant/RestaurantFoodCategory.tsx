@@ -2,7 +2,12 @@ import cls from './RestaurantFoodCategory.module.scss'
 import FoodCard from "./FoodCard";
 import {Product} from "../../types/Restaurant";
 
-const RestaurantFoodCategory = (props: {title: string, products: Product[]}) => {
+type FoodCategory = {
+    title: string,
+    products: Product[],
+}
+
+const RestaurantFoodCategory = (props: FoodCategory) => {
 
     const cards = props.products.map(card => <FoodCard card={card} key={card.id} />)
 
