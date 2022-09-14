@@ -1,5 +1,5 @@
 import cls from "./DeliveryType.module.scss"
-import {Dispatch, useState} from "react";
+import {useState} from "react";
 
 type DeliveryType = {
     types: Type[]

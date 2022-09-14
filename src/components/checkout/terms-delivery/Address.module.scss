@@ -1,0 +1,16 @@
+.address {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  justify-content: space-between;
+
+  &__input {
+    max-width: 23%;
+    margin-bottom: 10px;
+
+    &--comment {
+      width: 100%;
+    }
+  }
+}
+

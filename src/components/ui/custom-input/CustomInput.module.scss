@@ -1,0 +1,19 @@
+.custom-input {
+
+  display: flex;
+  flex-direction: column;
+  border: 1px solid silver;
+  border-radius: 16px;
+  padding: 5px 13px;
+
+  &__label {
+    opacity: .5;
+    font-size: 14px;
+  }
+
+  &__input {
+    border: none;
+    outline: none;
+    font-size: 16px;
+  }
+}
