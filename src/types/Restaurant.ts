@@ -24,7 +24,7 @@ export type Product = {
     portion: string,
 }
 
-export type OrderProduct = {
+export type CartProduct = {
     id: number
     preview: string,
     price: number,

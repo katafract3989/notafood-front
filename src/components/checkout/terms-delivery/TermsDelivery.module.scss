@@ -2,6 +2,18 @@
   min-height: 250px;
   background: white;
   border-radius: 32px;
-  padding: 15px;
+  padding: 20px;
   margin-bottom: 20px;
+
+  &__types {
+    margin-bottom: 20px;
+  }
+
+  &__addresses {
+    margin-bottom: 20px;
+  }
+
+  &__time {
+    margin-bottom: 20px;
+  }
 }

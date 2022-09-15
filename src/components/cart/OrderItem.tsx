@@ -1,9 +1,9 @@
-import {OrderProduct} from "../../types/Restaurant";
+import {CartProduct} from "../../types/Restaurant";
 import cls from "./OrderItem.module.scss";
 import SpinButton from "../ui/spin-button/SpinButton";
 import {useActions} from "../../hooks/useActions";
 
-const OrderItem = (props: { product: OrderProduct }) => {
+const OrderItem = (props: { product: CartProduct }) => {
 
     const product = props.product
     const {increaseQuantity, reduceQuantity, recalculationFinalPrice} = useActions()

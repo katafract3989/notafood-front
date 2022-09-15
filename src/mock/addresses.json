@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "street": "Владимира Селёдкина 83",
+    "apartment": "",
+    "intercom": "",
+    "approach": "",
+    "floor": "",
+    "comment": "Дом с красным банером"
+  },
+  {
+    "id": 2,
+    "street": "Владислава Листьева",
+    "apartment": "9",
+    "intercom": "",
+    "approach": "1",
+    "floor": "3",
+    "comment": "Нет домофона"
+  },
+  {
+    "id": 3,
+    "street": "Демидова 28",
+    "apartment": "7",
+    "intercom": "7",
+    "approach": "1",
+    "floor": "2",
+    "comment": "На тамбуре решётка"
+  }
+]

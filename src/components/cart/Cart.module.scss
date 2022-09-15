@@ -32,6 +32,17 @@
     bottom: 0;
     width: 320px;
   }
+
+  &__empty-message {
+    opacity: 0.5;
+    height: 50%;
+    width: 95%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: absolute;
+  }
 }
 
 .cart-footer-button {

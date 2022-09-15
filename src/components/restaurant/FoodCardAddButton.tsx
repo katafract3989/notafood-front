@@ -1,6 +1,6 @@
 import cls from "./FoodCardAddButton.module.scss";
 import {useActions} from "../../hooks/useActions";
-import {OrderProduct, Product} from "../../types/Restaurant";
+import {CartProduct, Product} from "../../types/Restaurant";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
 import SpinButton from "../../components/ui/spin-button/SpinButton";
 
@@ -9,7 +9,7 @@ const FoodCardAddButton = (props: {
 }) => {
 
     const {addProduct, increaseQuantity, reduceQuantity, recalculationFinalPrice} = useActions()
-    const orderProduct = useTypedSelector(state => state.cartReducer.order.find(item => item.id === props.card.id));
+    const orderProduct = useTypedSelector(state => state.cartReducer.cart.find(item => item.id === props.card.id));
 
     const addProductInCart = () => {
         addProduct(props.card)

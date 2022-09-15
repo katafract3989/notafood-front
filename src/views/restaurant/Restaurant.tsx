@@ -6,6 +6,7 @@ import Api from "../../common/api/axios";
 import {useParams} from "react-router-dom";
 import RestaurantMenu from "../../components/restaurant/RestaurantMenu";
 import Cart from "../../components/cart/Cart";
+import {useActions} from "../../hooks/useActions";
 
 
 type MenuLink = {title: string}
@@ -13,7 +14,7 @@ type MenuLink = {title: string}
 const RestaurantPage = () => {
     const {id} = useParams()
     const [restaurant, setRestaurant] = useState<Restaurant>({} as Restaurant);
-
+    const {setRestaurantInfo} = useActions();
     const [menuLinks, setMenuLinks] = useState<MenuLink[]>([])
 
     useEffect(() => reqRestaurant(), [])
@@ -30,9 +31,8 @@ const RestaurantPage = () => {
                 if(menu) {
                     setMenuLinks(menu)
                 }
+                setRestaurantInfo({id: res.data.id, title: res.data.title})
             }
-
-
         });
     }
 

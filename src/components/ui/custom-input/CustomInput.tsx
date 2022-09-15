@@ -2,7 +2,8 @@ import cls from "./CustomInput.module.scss"
 import {ChangeEvent} from "react";
 
 type Input = {
-    label: string
+    label: string,
+    value?: string,
     onInput: Function
 }
 
@@ -15,7 +16,7 @@ const CustomInput = (props: Input) => {
     return (
         <div className={cls['custom-input']}>
             <label className={cls['custom-input__label']}>{props.label}</label>
-            <input className={cls['custom-input__input']} onChange={e => onInput(e)}  type="text" />
+            <input className={cls['custom-input__input']} onChange={e => onInput(e)}  type="text" value={props.value} />
         </div>
 
     )

@@ -1,0 +1,38 @@
+.order-item {
+  display: flex;
+  margin-bottom: 10px;
+  justify-content: space-between;
+  font-size: 18px;
+  align-items: center;
+
+  &__preview {
+    width: 96px;
+    height: 96px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 32px;
+
+    img {
+      height: 100%;
+    }
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+
+    .item-portion {
+      opacity: .5;
+    }
+  }
+
+  &__quantity {
+    height: 40px;
+  }
+
+
+
+}

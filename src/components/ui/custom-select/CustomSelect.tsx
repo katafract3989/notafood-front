@@ -1,18 +1,19 @@
 import cls from "./CustomSelect.module.scss"
-import {SetStateAction, useState} from "react";
+import {useState} from "react";
 
 type Selector = {
     list: Record<string, SelectorValue>[]
     label: string,
     placeholder?: string,
+    onChange?: Function
 }
 
-type SelectorValue = string | number | null
+type SelectorValue = string | number | null | boolean
 
 const CustomSelect = (props: Selector) => {
 
     const list = props.list
-    const defaultPlaceholder: string = props.placeholder || 'Выберите';
+    const placeholder: string = props.placeholder || '';
     const label: string = props.label
     const [selectedItem, setSelectedItem] = useState<Record<string, SelectorValue>>(list[0]);
     const [isUnwrap, setIsUnwrap] = useState(false);
@@ -35,6 +36,10 @@ const CustomSelect = (props: Selector) => {
     const selectItem = (index: number) => {
         setSelectedItem(list[index])
         toggleSelectList()
+        if(props.onChange) {
+            props.onChange(list[index])
+        }
+
     }
 
     const Items = items.map((item, index) => <Item key={index} onSelect={(index: number) => selectItem(index)} index={index} label={item.label} />)
@@ -51,7 +56,7 @@ const CustomSelect = (props: Selector) => {
 
     return (
         <div className={cls['custom-select']}>
-            <span onClick={() => toggleSelectList()}>{selectedItem ? selectedItem[label] : defaultPlaceholder}</span>
+            <span className={cls['custom-select__selected']} onClick={() => toggleSelectList()}>{placeholder} {selectedItem ? selectedItem[label] : ''}</span>
             {selectList}
         </div>
     );

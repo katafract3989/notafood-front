@@ -1,62 +1,32 @@
 import cls from "./TermsDelivery.module.scss"
 import DeliveryType from "./DeliveryType";
-import {useState} from "react";
 import CustomSelect from "../../ui/custom-select/CustomSelect";
-import Address from "./Address";
+import AddressGroup from "./Address";
+import {useTypedSelector} from "../../../hooks/useTypedSelector";
+import {Address, DeliveryTime} from "@/types/Order";
+import {useActions} from "../../../hooks/useActions";
 
 const TermsDelivery = () => {
 
-
-    const [deliveryTypes, setDeliveryTypes] = useState([
-        {
-            id: 1,
-            title: 'Доставка',
-            price: 99,
-        },
-        {
-            id: 2,
-            title: 'Заказ другому',
-            price: 99,
-        },
-    ]);
-
-    const [addresses, setAddresses] = useState([
-        {
-            id: 1,
-            title: 'Владимира Селёдкина 83',
-        },
-        {
-            id: 2,
-            title: 'Владислава Листьева 9',
-        },
-        {
-            id: 3,
-            title: 'Демидова 27',
-        },
-        {
-            id: 4,
-            title: 'Родосская 1',
-        },
-        {
-            id: 5,
-            title: 'Юности 20',
-        },
-    ]);
-
-    const [selectedAddress, setSelectedAddress] = useState({
-        street: '',
-        apartment: '',
-        intercom: '',
-        approach: '',
-        floor: '',
-    })
+    const {addresses, deliveryTypes, availableDeliveryTime} = useTypedSelector(state => state.orderReducer);
+    const {changeStreet, changeDeliveryTime} = useActions()
 
     return (
         <div className={cls['terms-delivery']}>
             <h2>Условия доставки</h2>
-            <DeliveryType types={deliveryTypes} />
-            <CustomSelect list={addresses} label='title' placeholder='Выберите адрес' />
-            <Address />
+            <div className={cls['terms-delivery__types']}>
+                <DeliveryType types={deliveryTypes}/>
+            </div>
+            <div className={cls['terms-delivery__addresses']}>
+                <CustomSelect list={addresses} label='street' placeholder='Улица:'
+                              onChange={(item: Address) => changeStreet(item.id)}/>
+                <AddressGroup/>
+            </div>
+            <div className={cls['terms-delivery__time']}>
+                <h2>Время доставки</h2>
+                <CustomSelect list={availableDeliveryTime} label='time' placeholder='Сегодня:'
+                              onChange={(item: DeliveryTime) => changeDeliveryTime(item)}/>
+            </div>
         </div>
 
     )
