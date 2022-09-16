@@ -1,0 +1,12 @@
+.notifications {
+  max-height: 70%;
+  width: 400px;
+  position: fixed;
+  top: 5px;
+  right: 10px;
+  z-index: 100;
+  overflow: auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}

@@ -38,7 +38,7 @@ const OrderItem = (props: OrderItemProps) => {
                 <SpinButton onIncrease={() => increaseQuantityInProduct()} onReduce={() => reduceQuantityInProduct()} count={product.quantity} />
             </div>
             <div className={cls['order-item__price']}>
-                {product.price} руб
+                {product.totalPrice} руб
             </div>
         </div>
     )

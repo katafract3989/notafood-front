@@ -12,3 +12,8 @@ export type ApiRequestOptions = {
 export type ApiRequestParams = Record<string, string | number | null>
 
 export type ApiRequestBody = Record<string, ApiRequestParams | ApiRequestParams[]>
+
+export type ApiError = {
+    message: string,
+    code: number,
+}

@@ -9,7 +9,7 @@ import Cart from "../../components/cart/Cart";
 import {useActions} from "../../hooks/useActions";
 
 
-type MenuLink = {title: string}
+type MenuLink = { title: string }
 
 const RestaurantPage = () => {
     const {id} = useParams()
@@ -21,14 +21,14 @@ const RestaurantPage = () => {
 
     const reqRestaurant = () => {
         Api.getRequest(`/restaurants/${id}`).then(res => {
-            if(!Array.isArray(res.data)) {
+            if (!Array.isArray(res.data)) {
                 setRestaurant(res.data)
                 const menu = res.data.categories?.map((category: { title: string; }) => {
                     return {
                         title: category.title
                     }
                 })
-                if(menu) {
+                if (menu) {
                     setMenuLinks(menu)
                 }
                 setRestaurantInfo({id: res.data.id, title: res.data.title})
@@ -39,13 +39,13 @@ const RestaurantPage = () => {
     return (
         <div className={cls.restaurant}>
             <div className={cls['restaurant__menu']}>
-                <RestaurantMenu  menuLinks={menuLinks} />
+                <RestaurantMenu menuLinks={menuLinks}/>
             </div>
             <div className={cls['restaurant__food']}>
-               <RestaurantFood restaurant={restaurant} />
+                <RestaurantFood restaurant={restaurant}/>
             </div>
             <div className={cls['restaurant__cart']}>
-                <Cart />
+                <Cart/>
             </div>
         </div>
     )
