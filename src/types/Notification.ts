@@ -3,5 +3,6 @@ export type Notif = {
     title: string,
     text: string,
     isRead: boolean,
-    lifeCircle?: 1000,
+    isShow: boolean,
+    lifeCircle?: number,
 }

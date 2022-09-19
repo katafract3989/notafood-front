@@ -3,8 +3,9 @@ import {ChangeEvent} from "react";
 
 type Input = {
     label: string,
-    value?: string,
     onInput: Function
+    type?: string
+    value?: string,
 }
 
 const CustomInput = (props: Input) => {
@@ -16,7 +17,7 @@ const CustomInput = (props: Input) => {
     return (
         <div className={cls['custom-input']}>
             <label className={cls['custom-input__label']}>{props.label}</label>
-            <input className={cls['custom-input__input']} onChange={e => onInput(e)}  type="text" value={props.value} />
+            <input className={cls['custom-input__input']} type={props.type || 'text'} onChange={e => onInput(e)} value={props.value} />
         </div>
 
     )

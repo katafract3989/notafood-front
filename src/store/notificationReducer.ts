@@ -16,19 +16,26 @@ export const notificationSlice = createSlice({
 
         pushNotification: (state, action: PayloadAction<Notif>) => {
 
-           const notification = {
-               ...action.payload,
-               isRead: false,
-               id: new Date().getTime()
-           }
+            const notification = {
+                ...action.payload,
+                isRead: false,
+                isShow: true,
+                id: new Date().getTime()
+            }
 
-           if(state.notifications.length > 5) {
-               state.notifications.pop()
-               state.notifications.unshift(notification)
-           } else {
-               state.notifications.unshift(notification)
-           }
-        }
+            if (state.notifications.length > 5) {
+                state.notifications.pop()
+                state.notifications.unshift(notification)
+            } else {
+                state.notifications.unshift(notification)
+            }
+        },
+
+        deleteNotification: (state, action: PayloadAction<number>) => {
+            state.notifications = state.notifications.filter(notification => notification.id !== action.payload)
+        },
+
+
     }
 })
 
