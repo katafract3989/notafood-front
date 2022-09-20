@@ -9,7 +9,7 @@ const Login = () => {
     const navigate = useNavigate()
     const [login, setLogin] = useState('')
     const [password, setPassword] = useState('')
-    const {pushNotification, setAuth} = useActions()
+    const {pushNotification, setAuth, setUser} = useActions()
     const auth = () => {
         Api.postRequest('/auth/login', {
             username: login,
@@ -24,6 +24,7 @@ const Login = () => {
                     isShow: true,
                 })
                 setAuth(true)
+                setUserInfo()
                 navigate('/')
             }
 
@@ -34,6 +35,12 @@ const Login = () => {
                 isRead: false,
                 isShow: true,
             })
+        })
+    }
+
+    const setUserInfo = () => {
+        Api.getRequest('/me').then((res) => {
+           // setUser(res.data)
         })
     }
 

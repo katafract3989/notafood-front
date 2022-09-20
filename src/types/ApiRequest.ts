@@ -1,7 +1,8 @@
 import {RestaurantApiResponse} from "@/types/Restaurant";
+import {User} from "@/types/User";
 
 export type ApiResponse = {
-    data: RestaurantApiResponse
+    data: RestaurantApiResponse | User
     access_token?: string,
 }
 
