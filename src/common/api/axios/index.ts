@@ -70,6 +70,7 @@ export default class Api {
         }
         if(statusCode === 401) {
             store.dispatch(mainActions.setAuth(false))
+            localStorage.removeItem('access_token')
             window.location.replace('/login')
         }
 
