@@ -1,7 +1,7 @@
 import cls from "./Login.module.scss"
 import CustomInput from "../../components/ui/custom-input/CustomInput";
 import {useState} from "react";
-import Api from "../../common/api/axios";
+import {api} from "../../common/api";
 import {useNavigate} from "react-router-dom";
 import {useActions} from "../../hooks/useActions";
 
@@ -11,12 +11,13 @@ const Login = () => {
     const [password, setPassword] = useState('')
     const {pushNotification, setAuth, setUser} = useActions()
     const auth = () => {
-        Api.postRequest('/auth/login', {
+        api.postRequest('/auth/login', {
             username: login,
             password: password
         }).then(r => {
             if(r.access_token) {
                 localStorage.setItem('access_token', r.access_token)
+                api.refreshAuthorization()
                 pushNotification({
                     title: 'Добро пожаловать',
                     text: `Вы успешно авторизировались`,
@@ -39,7 +40,7 @@ const Login = () => {
     }
 
     const setUserInfo = () => {
-        Api.getRequest('/me').then((res) => {
+        api.getRequest('/me').then((res) => {
            // setUser(res.data)
         })
     }

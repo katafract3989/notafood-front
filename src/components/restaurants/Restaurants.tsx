@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
 import cls from './Restaurants.module.scss';
 import Card from './Card';
-import Api from "../../common/api/axios";
+import {api} from "../../common/api";
 import {Restaurant} from "@/types/Restaurant";
 
 const RestaurantsSection = () => {
@@ -11,14 +11,13 @@ const RestaurantsSection = () => {
     useEffect(() => reqRestaurants(), [])
 
     const reqRestaurants = () => {
-       Api.getRequest('/restaurants').then(res => {
-           if(Array.isArray(res.data)) {
-               setRestaurants(res.data)
-           }
-       });
+        api.getRequest('/restaurants').then(res => {
+           const restaurants = res.data as Restaurant[]
+           setRestaurants(restaurants.filter((restaurant) => restaurant.isActive));
+       })
     }
 
-    const restaurantsList = restaurants.map((item, index) => <Card key={index} restaurant={item}/>)
+    const restaurantsList = restaurants.map((restaurant) => <Card key={restaurant.id} restaurant={restaurant}/>)
 
     return (
         <div className={cls['restaurants']}>

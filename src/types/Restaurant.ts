@@ -5,6 +5,7 @@ export type Restaurant = {
     preview: string,
     title: string,
     rating: number,
+    isActive: boolean,
     minDeliveryTime: number,
     maxDeliveryTime: number,
     categories: Category[]

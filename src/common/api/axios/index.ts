@@ -7,15 +7,16 @@ const instance = require('axios').default;
 
 export default  class Api {
 
-    protected static BASE_URL: string = 'http://localhost:8080'
-    protected static headers: Record<string, string> = {
+    protected BASE_URL: string = 'http://localhost:8080'
+    protected headers: Record<string, string> = {
         'Content-Type': 'application/json; charset=utf-8',
         'X-Requested-With': 'XMLHttpRequest',
         'Accept': 'application/json',
         'Authorization': `Bearer ${localStorage.getItem('access_token')}`
     }
 
-    static async axiosRequest(method: string, endpoint: string, options?: ApiRequestOptions): Promise<ApiResponse> {
+     async axiosRequest(method: string, endpoint: string, options?: ApiRequestOptions): Promise<ApiResponse> {
+         this.refreshAuthorization()
         const config = {
             headers: this.headers,
             method: method,
@@ -35,23 +36,23 @@ export default  class Api {
         }
     }
 
-    static async getRequest(endpoint: string, params?: ApiRequestParams): Promise<ApiResponse> {
+    async getRequest(endpoint: string, params?: ApiRequestParams): Promise<ApiResponse> {
         return await this.axiosRequest('GET', endpoint, {
             params: params
         })
     }
 
-    static async postRequest(endpoint: string, body: ApiRequestBody): Promise<ApiResponse> {
+    async postRequest(endpoint: string, body: ApiRequestBody): Promise<ApiResponse> {
         return await this.axiosRequest('POST', endpoint, {
            data: body
         })
     }
 
-    static async deleteRequest(endpoint: string): Promise<ApiResponse> {
+    async deleteRequest(endpoint: string): Promise<ApiResponse> {
         return await this.axiosRequest('DELETE', endpoint)
     }
 
-    static errorHandler(e: AxiosError) {
+    errorHandler(e: AxiosError) {
         let response: AxiosResponse
         let message: String
         let statusCode: Number | null = null
@@ -71,6 +72,10 @@ export default  class Api {
             store.dispatch(mainActions.setAuth(false))
         }
 
+    }
+
+    refreshAuthorization() {
+        this.headers['Authorization'] = `Bearer ${localStorage.getItem('access_token')}`
     }
 }
 
