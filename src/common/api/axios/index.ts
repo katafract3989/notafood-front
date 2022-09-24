@@ -5,7 +5,7 @@ import {notificationActions} from "../../../store/notificationReducer";
 import {mainActions} from "../../../store/mainReducer";
 const instance = require('axios').default;
 
-export default  class Api {
+export default class Api {
 
     protected BASE_URL: string = 'http://localhost:8080'
     protected headers: Record<string, string> = {
@@ -15,8 +15,8 @@ export default  class Api {
         'Authorization': `Bearer ${localStorage.getItem('access_token')}`
     }
 
-     async axiosRequest(method: string, endpoint: string, options?: ApiRequestOptions): Promise<ApiResponse> {
-         this.refreshAuthorization()
+    protected async axiosRequest(method: string, endpoint: string, options?: ApiRequestOptions): Promise<ApiResponse> {
+        this.refreshAuthorization()
         const config = {
             headers: this.headers,
             method: method,
@@ -36,23 +36,23 @@ export default  class Api {
         }
     }
 
-    async getRequest(endpoint: string, params?: ApiRequestParams): Promise<ApiResponse> {
+    public async getRequest(endpoint: string, params?: ApiRequestParams): Promise<ApiResponse> {
         return await this.axiosRequest('GET', endpoint, {
             params: params
         })
     }
 
-    async postRequest(endpoint: string, body: ApiRequestBody): Promise<ApiResponse> {
+    public async postRequest(endpoint: string, body: ApiRequestBody): Promise<ApiResponse> {
         return await this.axiosRequest('POST', endpoint, {
            data: body
         })
     }
 
-    async deleteRequest(endpoint: string): Promise<ApiResponse> {
+    public async deleteRequest(endpoint: string): Promise<ApiResponse> {
         return await this.axiosRequest('DELETE', endpoint)
     }
 
-    errorHandler(e: AxiosError) {
+    protected errorHandler(e: AxiosError) {
         let response: AxiosResponse
         let message: String
         let statusCode: Number | null = null
@@ -70,13 +70,15 @@ export default  class Api {
         }
         if(statusCode === 401) {
             store.dispatch(mainActions.setAuth(false))
+            window.location.replace('/login')
         }
 
     }
 
-    refreshAuthorization() {
+    protected refreshAuthorization() {
         this.headers['Authorization'] = `Bearer ${localStorage.getItem('access_token')}`
     }
+
 }
 
 

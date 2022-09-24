@@ -4,6 +4,7 @@ import {useState} from "react";
 import {api} from "../../common/api";
 import {useNavigate} from "react-router-dom";
 import {useActions} from "../../hooks/useActions";
+import {User} from "@/types/User";
 
 const Login = () => {
     const navigate = useNavigate()
@@ -17,7 +18,6 @@ const Login = () => {
         }).then(r => {
             if(r.access_token) {
                 localStorage.setItem('access_token', r.access_token)
-                api.refreshAuthorization()
                 pushNotification({
                     title: 'Добро пожаловать',
                     text: `Вы успешно авторизировались`,
@@ -41,7 +41,7 @@ const Login = () => {
 
     const setUserInfo = () => {
         api.getRequest('/me').then((res) => {
-           // setUser(res.data)
+          setUser(res.data as User)
         })
     }
 
