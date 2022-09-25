@@ -2,35 +2,45 @@ import cls from './restaurant.module.scss'
 import RestaurantFood from "../../components/restaurant/RestaurantFood";
 import {useEffect, useState} from "react";
 import {Restaurant} from "@/types/Restaurant";
-import {api} from "../../common/api";
 import {useParams} from "react-router-dom";
 import RestaurantMenu from "../../components/restaurant/RestaurantMenu";
 import Cart from "../../components/cart/Cart";
 import {useActions} from "../../hooks/useActions";
+import RestaurantService from "../../common/services/restaurants/RestaurantService";
 
 type MenuLink = { title: string }
 
 const RestaurantPage = () => {
+    const restaurantService = new RestaurantService;
     const {id} = useParams()
     const [restaurant, setRestaurant] = useState({} as Restaurant);
     const {setRestaurantInfo} = useActions();
-    const [menuLinks, setMenuLinks] = useState<MenuLink[]>([])
+    const [menuLinks, setMenuLinks] = useState([] as MenuLink[])
 
-    useEffect(() => reqRestaurant(), [])
+    useEffect(() => {
+        if(id) {
+            getRestaurant(id);
+        }
+    }, []);
 
-    const reqRestaurant = () => {
-        api.getRequest(`/restaurants/${id}`).then((res) => {
 
-            const restaurant = res.data as Restaurant
+    const getRestaurant = (id: number | string) => {
+        if(id) {
+            restaurantService.getRestaurant(id).then(restaurant => {
+                setRestaurant(restaurant);
+                setRestaurantInfo({id: restaurant.id, title: restaurant.title})
+                setMenu(restaurant);
+            })
+        }
 
-            setRestaurant(restaurant)
-            setMenuLinks(restaurant.categories.map((category: { title: string; }) => {
-                return {
-                    title: category.title
-                }
-            }))
-            setRestaurantInfo({id: restaurant.id, title: restaurant.title})
-        });
+    }
+    const setMenu = (restaurant: Restaurant) => {
+        const menuLinks = restaurant.categories.map((category) => {
+            return {
+                title: category.title
+            }
+        })
+        setMenuLinks(menuLinks)
     }
 
     return (

@@ -1,21 +1,16 @@
 import {useEffect, useState} from 'react';
 import cls from './Restaurants.module.scss';
 import Card from './Card';
-import {api} from "../../common/api";
 import {Restaurant} from "@/types/Restaurant";
+import RestaurantService from "../../common/services/restaurants/RestaurantService";
 
 const RestaurantsSection = () => {
+    const restaurantService = new RestaurantService;
+    const [restaurants, setRestaurants] = useState<Restaurant[]>([]);
 
-    const [restaurants, setRestaurants] = useState<Restaurant[]>([])
-
-    useEffect(() => reqRestaurants(), [])
-
-    const reqRestaurants = () => {
-        api.getRequest('/restaurants').then(res => {
-           const restaurants = res.data as Restaurant[]
-           setRestaurants(restaurants.filter((restaurant) => restaurant.isActive));
-       })
-    }
+    useEffect(() => {
+        restaurantService.getRestaurants().then(restaurants => setRestaurants(restaurants))
+    }, [])
 
     const restaurantsList = restaurants.map((restaurant) => <Card key={restaurant.id} restaurant={restaurant}/>)
 

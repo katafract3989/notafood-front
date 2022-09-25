@@ -15,7 +15,6 @@ export const mainSlice = createSlice({
     name: 'main',
     initialState: initialState,
     reducers: {
-
         setAuth: (state, action: PayloadAction<boolean>) => {
             state.isAuth = action.payload
         },
@@ -23,8 +22,6 @@ export const mainSlice = createSlice({
         setUser: (state, action: PayloadAction<User>) => {
             state.user = action.payload
         },
-
-
     }
 })
 
